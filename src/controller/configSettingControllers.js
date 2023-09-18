@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { ConfigSettingSchema } from '../models/configSettingModel';
 
 
-const ConfigSettingsModel = mongoose.model('ConfigSetting', ConfigSettingSchema);
+const ConfigSettingsModel = mongoose.model('Settings', ConfigSettingSchema);
 
 export const addNewSetting = async (req, res) => {
 
