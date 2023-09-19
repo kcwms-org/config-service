@@ -2,13 +2,18 @@ import bodyParser from 'body-parser';
 import express from "express";
 import mongoose from 'mongoose';
 import ConfigSettingRoutes from "./src/routes/configSettingRoutes";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const PORT = 3000;
+// get port from environment variable
+const PORT = process.env.CURRENCY_SERVICE_PORT || 3000
+
 
 //mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/Configurations', {
+mongoose.connect(process.env.DB_CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
